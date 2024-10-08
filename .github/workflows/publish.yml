@@ -23,6 +23,7 @@ jobs:
         cd opea
         pwd
         git clone https://github.com/NeoZhangJianyu/docs.git
+        ls
         cd docs
         pwd
         bash scripts/build.sh
