@@ -1,0 +1,31 @@
+name: Publish
+permissions: {}
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build Online Document
+      run: |
+        git config --local --get remote.origin.url
+        mkdir opea
+        cd opea
+        git clone https://github.com/NeoZhangJianyu/docs.git
+        cd docs
+        bash scripts/build.sh
+
+    - name: Push to github
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./opea/release_doc
+        publish_branch: main
