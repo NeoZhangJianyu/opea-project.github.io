@@ -23,7 +23,7 @@ jobs:
         cd opea
         pwd
         echo "git clone"
-        git clone https://github.com/NeoZhangJianyu/docs.git
+        git clone -b one_click_build_doc https://github.com/NeoZhangJianyu/docs.git
         ls -la
         cd docs
         echo "entry docs"
