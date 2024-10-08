@@ -22,11 +22,14 @@ jobs:
         pwd
         cd opea
         pwd
+        echo "git clone"
         git clone https://github.com/NeoZhangJianyu/docs.git
-        ls
+        ls -la
         cd docs
-        ls
+        echo "entry docs"
+        ls -la
         pwd
+        ls -la scripts
         bash scripts/build.sh
 
     - name: Push to github
