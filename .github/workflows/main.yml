@@ -1,16 +1,17 @@
-name: schedule test
-permissions: {}
-
-
-on:
+name: Experiment
+on: 
   schedule:
-    - cron: '*/5 * * * *'
-    - cron: '*/2 * * * *'
-
+  - cron: '*/5 * * * *'
 
 jobs:
-  test_schedule:
+  job1:
+    name: Debug
     runs-on: ubuntu-latest
+
     steps:
-      - name: Not on Monday or Wednesday
-        run: echo "This step will be skipped on Monday and Wednesday"
+    - name: Git checkout
+      uses: actions/checkout@v2
+      with: { ref: script }
+    - name: List files
+      run: ls
+
