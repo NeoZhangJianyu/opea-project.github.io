@@ -23,7 +23,13 @@ jobs:
         cd docs
         echo "build online doc"
         bash scripts/build.sh
+        
+    - name: Backup action
+      run: |
+        mkdir -p ./opea/opea-project.github.io/.github/workflows
+        cp .github/workflows/publish.yml ./opea/opea-project.github.io/.github/workflows
 
+        
     - name: Push to github
       uses: peaceiris/actions-gh-pages@v3
       with:
