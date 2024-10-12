@@ -22,7 +22,7 @@ jobs:
         git clone -b one_click_build_doc https://github.com/NeoZhangJianyu/docs.git
         cd docs
         echo "build online doc"
-        bash scripts/build.sh
+        bash scripts/build.sh f
 
     - name: Push to github
       uses: peaceiris/actions-gh-pages@v3
