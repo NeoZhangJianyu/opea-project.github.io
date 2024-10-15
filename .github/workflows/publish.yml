@@ -31,3 +31,5 @@ jobs:
         publish_dir: ./opea/opea-project.github.io
         publish_branch: main
         exclude_assets: ''
+        user_name: 'NeuralChatBot'
+        user_email: 'grp_neural_chat_bot@intel.com'
