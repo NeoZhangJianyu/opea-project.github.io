@@ -1227,6 +1227,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../GenAIComps/comps/prompt_registry/src/README.html#setup-environment-variables">Setup Environment Variables</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../GenAIComps/comps/prompt_registry/src/README.html#start-microservice-with-docker-option-1">🚀 Start Microservice with Docker (Option 1)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../GenAIComps/comps/prompt_registry/src/README.html#start-microservice-with-docker-compose-option-2">🚀 Start Microservice with Docker Compose (Option 2)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../GenAIComps/comps/prompt_registry/src/README.html#mcp-model-context-protocol-usage">🤖 MCP (Model Context Protocol) Usage</a></li>
 </ul>
 </li>
 </ul>
@@ -2921,6 +2922,12 @@
 <span class="gp"># </span>helm<span class="w"> </span>install<span class="w"> </span>docsum<span class="w"> </span>docsum<span class="w"> </span>--set<span class="w"> </span>global.HF_TOKEN<span class="o">=</span><span class="si">${</span><span class="nv">HFTOKEN</span><span class="si">}</span><span class="w"> </span>--values<span class="w"> </span>docsum/rocm-values.yaml
 <span class="gp"># </span>To<span class="w"> </span>use<span class="w"> </span>AMD<span class="w"> </span>ROCm<span class="w"> </span>device<span class="w"> </span>with<span class="w"> </span>TGI
 <span class="gp"># </span>helm<span class="w"> </span>install<span class="w"> </span>docsum<span class="w"> </span>docsum<span class="w"> </span>--set<span class="w"> </span>global.HF_TOKEN<span class="o">=</span><span class="si">${</span><span class="nv">HFTOKEN</span><span class="si">}</span><span class="w"> </span>--values<span class="w"> </span>docsum/rocm-tgi-values.yaml
+<span class="gp"># </span>To<span class="w"> </span>use<span class="w"> </span>with<span class="w"> </span>external<span class="w"> </span>OpenAI-compatible<span class="w"> </span>LLM<span class="w"> </span>endpoints<span class="w"> </span><span class="o">(</span>OpenAI,<span class="w"> </span>vLLM,<span class="w"> </span>TGI,<span class="w"> </span>etc.<span class="o">)</span>
+<span class="gp"># </span>This<span class="w"> </span>configures<span class="w"> </span>the<span class="w"> </span>llm-uservice<span class="w"> </span>to<span class="w"> </span>connect<span class="w"> </span>to<span class="w"> </span>external<span class="w"> </span>LLM<span class="w"> </span>providers<span class="w"> </span><span class="k">while</span><span class="w"> </span>maintaining<span class="w"> </span>DocSum<span class="w"> </span>compatibility
+<span class="gp"># </span>For<span class="w"> </span>OpenAI:
+<span class="gp"># </span>helm<span class="w"> </span>install<span class="w"> </span>docsum<span class="w"> </span>docsum<span class="w"> </span>--values<span class="w"> </span>docsum/variant_external-llm-values.yaml<span class="w"> </span>--set<span class="w"> </span>llm-uservice.OPENAI_API_KEY<span class="o">=</span><span class="s2">&quot;your-api-key&quot;</span><span class="w"> </span>--set<span class="w"> </span>llm-uservice.LLM_ENDPOINT<span class="o">=</span><span class="s2">&quot;https://api.openai.com&quot;</span><span class="w"> </span>--set<span class="w"> </span>llm-uservice.LLM_MODEL_ID<span class="o">=</span><span class="s2">&quot;gpt-4-turbo&quot;</span>
+<span class="gp"># </span>For<span class="w"> </span>vLLM/TGI<span class="w"> </span>or<span class="w"> </span>other<span class="w"> </span>OpenAI-compatible<span class="w"> </span>endpoints:
+<span class="gp"># </span>helm<span class="w"> </span>install<span class="w"> </span>docsum<span class="w"> </span>docsum<span class="w"> </span>--values<span class="w"> </span>docsum/variant_external-llm-values.yaml<span class="w"> </span>--set<span class="w"> </span>llm-uservice.LLM_ENDPOINT<span class="o">=</span><span class="s2">&quot;http://your-server-url&quot;</span><span class="w"> </span>--set<span class="w"> </span>llm-uservice.LLM_MODEL_ID<span class="o">=</span><span class="s2">&quot;your-model&quot;</span>
 </pre></div>
 </div>
 </section>
